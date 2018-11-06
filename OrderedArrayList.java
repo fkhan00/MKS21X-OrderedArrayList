@@ -10,19 +10,20 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
   public boolean add(T element)
   {
-    int present = 0;
+    int holder = size();
     if (element == null)
     {
       throw new IllegalArgumentException();
     }
       for (int i = 0; i < size(); i++)
       {
-        if ( element.compareTo(get(i)) < 0)
+        if (element.compareTo(get(i)) < 0)
         {
-          present = i;
+          holder = i;
+          break;
         }
       }
-      super.add(present, element);
+      super.add(holder, element);
       return true;
     }
   public void add(int index, T element)
